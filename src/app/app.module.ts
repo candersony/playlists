@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PlaylistModule } from './playlist/playlist.module';
+import { AppRoutingModule, AuthGuard } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,10 @@ import { PlaylistModule } from './playlist/playlist.module';
   ],
   imports: [
     BrowserModule,
-    PlaylistModule
+    PlaylistModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
