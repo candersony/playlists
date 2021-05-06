@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  font: 100%/1.5 Arial, sans-serif;
+}
+html,
+body {
+  background: #eee;
+}
+body,
+a {
+  color: #555;
+}
+
+h1,
+h2,
+h3 {
+  font-family: georgia, serif;
+  font-weight: normal;
+  color: #39619e;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+
+ul {
+  list-style: none;
+}
