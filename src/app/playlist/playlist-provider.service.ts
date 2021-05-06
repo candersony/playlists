@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map, shareReplay, startWith, switchMapTo } from 'rxjs/operators';
-import { PlaylistResponse } from './api/models/playlist-response';
 import { PlaylistClient } from './api/playlist-client.service';
-import { createPlaylistCollection } from './models/playlist-collection';
+import { toPlaylistCollections } from './models/playlist-collection';
 
 @Injectable()
 export class PlaylistProvider {
@@ -22,6 +21,3 @@ export class PlaylistProvider {
     this.refresh$.next();
   }
 }
-
-const toPlaylistCollections = (response: PlaylistResponse) =>
-  Object.values(response).map(createPlaylistCollection);

@@ -7,11 +7,22 @@ import { PlaylistCardComponent } from './components/playlist-card/playlist-card.
 import { PlaylistCollectionComponent } from './components/playlist-collection/playlist-collection.component';
 import { PlaylistClient } from './api/playlist-client.service';
 import { PlaylistProvider } from './playlist-provider.service';
+import { NgxsModule } from '@ngxs/store';
+import { PlaylistState } from './store/playlist.state';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, SharedModule],
-  declarations: [PlaylistComponent, PlaylistCardComponent, PlaylistCollectionComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    SharedModule,
+    NgxsModule.forRoot([PlaylistState]),
+  ],
+  declarations: [
+    PlaylistComponent,
+    PlaylistCardComponent,
+    PlaylistCollectionComponent,
+  ],
   exports: [PlaylistComponent],
-  providers: [PlaylistClient, PlaylistProvider]
+  providers: [PlaylistClient, PlaylistProvider],
 })
 export class PlaylistModule {}

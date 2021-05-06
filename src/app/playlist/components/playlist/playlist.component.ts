@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-import { PlaylistProvider } from '../../playlist-provider.service';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { PlaylistStateModel } from '../../store/playlist-state.model';
+import { PlaylistState } from '../../store/playlist.state';
+import { RefreshClicked } from './refresh-clicked.action';
 
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
 })
 export class PlaylistComponent {
-  constructor(public readonly playlistProvider: PlaylistProvider) {}
+  @Select(PlaylistState) playlists$: Observable<PlaylistStateModel> | undefined;
+
+  constructor(private readonly store: Store) {}
+
+  refreshPlaylists(): void {
+    this.store.dispatch(new RefreshClicked());
+  }
 }

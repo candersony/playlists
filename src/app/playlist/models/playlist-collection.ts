@@ -1,4 +1,5 @@
 import { PlaylistCollection as ApiPlaylistCollection } from '../api/models/playlist-collection';
+import { PlaylistResponse } from '../api/models/playlist-response';
 import { Playlist, createPlaylist } from './playlist';
 
 export interface PlaylistCollection {
@@ -12,3 +13,6 @@ export const createPlaylistCollection = (
   name: collection.name,
   playlists: collection.content.map(createPlaylist),
 });
+
+export const toPlaylistCollections = (response: PlaylistResponse) =>
+  Object.values(response).map(createPlaylistCollection);

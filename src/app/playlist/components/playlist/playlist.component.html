@@ -1,7 +1,7 @@
 <h1>Playlists</h1>
-<button type="button" (click)="playlistProvider.refreshPlaylists()">Refresh</button>
+<button type="button" (click)="refreshPlaylists()">Refresh</button>
 <ul>
-  <li *ngFor="let collection of playlistProvider.playlists$ | async">
+  <li *ngFor="let collection of playlists$ | async">
     <app-playlist-collection
       [collection]="collection"
     ></app-playlist-collection>
