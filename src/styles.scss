@@ -31,3 +31,13 @@ h3 {
 ul {
   list-style: none;
 }
+
+.grid {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  &.grid-col-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

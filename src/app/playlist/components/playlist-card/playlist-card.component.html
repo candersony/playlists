@@ -1,0 +1,8 @@
+<app-link *ngIf="playlist" [href]="playlist.url">
+  <app-card>
+    <ng-container header>{{ playlist.name }}</ng-container>
+    <ng-container sub>{{ playlist.curatorName }}</ng-container>
+
+    <img [src]="playlist.artworkImageUrl" width="100" height="100" />
+  </app-card>
+</app-link>
