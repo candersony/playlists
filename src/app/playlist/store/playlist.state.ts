@@ -6,6 +6,7 @@ import { RefreshClicked } from '../components/playlist/refresh-clicked.action';
 import { toPlaylistCollections } from '../models/playlist-collection';
 import { LoadPlaylists } from './load-playlists.action';
 import { PlaylistStateModel } from './playlist-state.model';
+import { shuffleResponse } from './shuffle';
 
 @State<PlaylistStateModel>({
   name: 'playlist',
@@ -19,9 +20,10 @@ export class PlaylistState {
     return dispatch(new LoadPlaylists());
   }
 
-  @Action(LoadPlaylists)
+  @Action(LoadPlaylists, { cancelUncompleted: true })
   load({ setState }: StateContext<PlaylistStateModel>) {
     return this.playlistClient.playlists$.pipe(
+      map(shuffleResponse),
       map(toPlaylistCollections),
       tap(setState)
     );

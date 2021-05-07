@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { PlaylistCollection } from '../../models/playlist-collection';
 import { PlaylistStateModel } from '../../store/playlist-state.model';
 import { PlaylistState } from '../../store/playlist.state';
 import { RefreshClicked } from './refresh-clicked.action';
@@ -16,5 +17,9 @@ export class PlaylistComponent {
 
   refreshPlaylists(): void {
     this.store.dispatch(new RefreshClicked());
+  }
+
+  trackByName(index: number, collection: PlaylistCollection) {
+    return collection.name;
   }
 }

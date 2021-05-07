@@ -1,7 +1,7 @@
 <ng-container *ngIf="collection">
   <h2>{{ collection.name }}</h2>
   <ul class="grid grid-col-3">
-    <li *ngFor="let playlist of collection.playlists">
+    <li *ngFor="let playlist of collection.playlists; trackBy: trackById">
       <app-playlist-card [playlist]="playlist"></app-playlist-card>
     </li>
   </ul>

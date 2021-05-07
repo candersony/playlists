@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Playlist } from '../../models/playlist';
 import { PlaylistCollection } from '../../models/playlist-collection';
 
 @Component({
@@ -8,4 +9,8 @@ import { PlaylistCollection } from '../../models/playlist-collection';
 })
 export class PlaylistCollectionComponent {
   @Input() collection: PlaylistCollection | undefined;
+
+  trackById(index: number, playlist: Playlist) {
+    return playlist.id;
+  }
 }
