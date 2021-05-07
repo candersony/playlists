@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
 import { map, tap } from 'rxjs/operators';
 import { PlaylistClient } from '../api/playlist-client.service';
-import { RefreshClicked } from '../components/playlist/refresh-clicked.action';
+import { RefreshClicked } from '../actions/refresh-clicked.action';
 import { toPlaylistCollections } from '../models/playlist-collection';
-import { LoadPlaylists } from './load-playlists.action';
+import { LoadPlaylists } from '../actions/load-playlists.action';
 import { PlaylistStateModel } from './playlist-state.model';
 import { shuffleResponse } from './shuffle';
 
