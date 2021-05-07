@@ -2,7 +2,7 @@ import { Injectable, NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { PlaylistComponent } from './playlist/components/playlist/playlist.component';
+import { PlaylistsPageComponent } from './playlist/pages/playlists/playlists-page.component';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -21,7 +21,7 @@ export const routes: Routes = [
       },
       {
         path: 'playlists',
-        component: PlaylistComponent,
+        component: PlaylistsPageComponent,
       },
     ],
   },

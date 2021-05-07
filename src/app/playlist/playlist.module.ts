@@ -9,6 +9,7 @@ import { PlaylistClient } from './api/playlist-client.service';
 import { PlaylistProvider } from './playlist-provider.service';
 import { NgxsModule } from '@ngxs/store';
 import { PlaylistState } from './store/playlist.state';
+import { PlaylistsPageComponent } from './pages/playlists/playlists-page.component';
 
 @NgModule({
   imports: [
@@ -21,8 +22,9 @@ import { PlaylistState } from './store/playlist.state';
     PlaylistComponent,
     PlaylistCardComponent,
     PlaylistCollectionComponent,
+    PlaylistsPageComponent,
   ],
-  exports: [PlaylistComponent],
+  exports: [PlaylistsPageComponent],
   providers: [PlaylistClient, PlaylistProvider],
 })
 export class PlaylistModule {}
