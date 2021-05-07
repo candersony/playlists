@@ -1,27 +1,7 @@
 # Playlists
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+This is a simple Angular 11 application that fetches and displays playlists.
 
-## Development server
+The app has been broken down into feature/domain modules to ensure a good separation of concerns. Common UI items ([card](src/app/shared/components/card), [link](src/app/shared/components/link)) have been placed into a [Shared Module](src/app/shared) anticipating reuse. Items specific to Playlists have been placed together in the [Playlist module](src/app/playlist/playlist.module.ts). This includes an [API client](src/app/playlist/api) to fetch playlists, a [reactive store](src/app/playlist/store) to handle playlist actions, load the data and provide it to components, some [presentation components](src/app/playlist/components) to display the playlist data and a [page component](src/app/playlist/pages/playlists) connected to the store. This ensures items are small and specific, ensuring the structure is easy to navigate and understand, and easy to test.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Playlist provider](src/app/playlist/playlist-provider.service.ts) was added early on to get up and running quickly. This has been replaced by the NGXS state so is no longer required and should be deleted from the codebase.
